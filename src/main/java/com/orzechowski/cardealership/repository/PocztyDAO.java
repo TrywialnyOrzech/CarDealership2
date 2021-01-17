@@ -1,4 +1,4 @@
-package com.orzechowski.cardealership.controllers;
+package com.orzechowski.cardealership.repository;
 
 import com.orzechowski.cardealership.models.Poczty;
 import org.springframework.beans.factory.annotation.Autowired;
