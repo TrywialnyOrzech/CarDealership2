@@ -1,5 +1,9 @@
 package com.orzechowski.cardealership;
 
-public class CarDealershipApplication {
+import org.springframework.boot.SpringApplication;
 
+public class CarDealershipApplication {
+    public static void main(String[] args){
+        SpringApplication.run(CarDealershipApplication.class, args);
+    }
 }
