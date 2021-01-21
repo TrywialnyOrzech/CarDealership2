@@ -23,7 +23,6 @@ class PocztyDAOTest {
         datasource.setUsername("natan");
         datasource.setPassword("toor");
         datasource.setDriverClassName("oracle.jdbc.OracleDriver");
-
         // Import jdbc template
         dao = new PocztyDAO(new JdbcTemplate(datasource));
 
