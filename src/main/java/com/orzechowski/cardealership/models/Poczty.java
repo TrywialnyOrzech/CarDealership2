@@ -9,8 +9,7 @@ public class Poczty {
 
     }
 
-    public Poczty(/*int nr_poczty,*/ String kod_poczty, String poczta) {
-        //this.nr_poczty = nr_poczty;
+    public Poczty(String kod_poczty, String poczta) {
         this.kod_poczty = kod_poczty;
         Poczta = poczta;
     }

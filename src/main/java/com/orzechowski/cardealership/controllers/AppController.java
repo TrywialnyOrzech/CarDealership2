@@ -69,11 +69,6 @@ public class AppController {
 
     //
 
-    @RequestMapping("/tabela2")
-    public String viewTestPage(Model model){
-        List<Poczty> listPoczty = dao.list();
-        model.addAttribute("listPoczty", listPoczty);
-        return "tabela2";
-    }
+
 
 }
