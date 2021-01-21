@@ -59,6 +59,7 @@ class PocztyDAOTest {
 
     @Test
     void delete() {
-        fail("Not yet implemented");
+        int nr_poczty = 999;
+        dao.delete(nr_poczty);
     }
 }

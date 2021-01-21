@@ -54,7 +54,8 @@ public class PocztyDAO {
     }
 
     // Delete row
-    public void delete(int id){
-
+    public void delete(int nr_poczty){
+        String sql = "DELETE FROM POCZTY WHERE Nr_poczty = ?";
+        jdbcTemplate.update(sql, nr_poczty);
     }
 }

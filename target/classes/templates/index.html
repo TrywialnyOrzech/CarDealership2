@@ -35,6 +35,8 @@
             <td th:text="${poczty.poczta}">Poczta</td>
             <td>
                 <a th:href="@{'/edit/' + ${poczty.nr_poczty}}">Edytuj</a>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <a th:href="@{'/delete/' + ${poczty.nr_poczty}}">Usuń</a>
             </td>
         </tr>
         </tbody>

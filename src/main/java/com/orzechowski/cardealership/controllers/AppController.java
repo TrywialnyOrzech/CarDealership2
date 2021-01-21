@@ -52,4 +52,10 @@ public class AppController {
         return "redirect:/";
     }
 
+    @RequestMapping(value = "/delete/{nr_poczty}")
+    public String delete(@PathVariable(name = "nr_poczty") int nr_poczty) {
+        dao.delete(nr_poczty);
+        return "redirect:/";
+    }
+
 }
