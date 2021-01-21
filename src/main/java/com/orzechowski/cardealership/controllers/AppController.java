@@ -27,6 +27,13 @@ public class AppController {
 
     // Poczty mapping methods
 
+    @RequestMapping("/viewPoczty")
+    public String viewPoczty(Model model){
+        List<Poczty> listPoczty = dao.list();
+        model.addAttribute("listPoczty", listPoczty);
+        return "view_poczty";
+    }
+
     @RequestMapping("/newPoczty")
     public String showNewForm(Model model){
         Poczty poczty = new Poczty();
