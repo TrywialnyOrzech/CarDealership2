@@ -25,20 +25,22 @@ public class AppController {
         return "index";
     }
 
-    @RequestMapping("/new")
+    // Poczty mapping methods
+
+    @RequestMapping("/newPoczty")
     public String showNewForm(Model model){
         Poczty poczty = new Poczty();
         model.addAttribute("poczty", poczty);
         return "new_form_poczty";
     }
 
-    @RequestMapping(value="/save", method = RequestMethod.POST)
+    @RequestMapping(value="/savePoczty", method = RequestMethod.POST)
     public String save(@ModelAttribute("poczty") Poczty poczty){
         dao.save(poczty);
         return "redirect:/";        // back to start location
     }
 
-    @RequestMapping("/edit/{nr_poczty}")
+    @RequestMapping("/editPoczty/{nr_poczty}")
     public ModelAndView showEditForm(@PathVariable(name = "nr_poczty") int nr_poczty) {
         ModelAndView mav = new ModelAndView("edit_form_poczty");
         Poczty poczty = dao.get(nr_poczty);
@@ -46,16 +48,25 @@ public class AppController {
         return mav;
     }
 
-    @RequestMapping(value = "/update", method = RequestMethod.POST)
+    @RequestMapping(value = "/updatePoczty", method = RequestMethod.POST)
     public String update(@ModelAttribute("poczty") Poczty poczty){
         dao.update(poczty);
         return "redirect:/";
     }
 
-    @RequestMapping(value = "/delete/{nr_poczty}")
+    @RequestMapping(value = "/deletePoczty/{nr_poczty}")
     public String delete(@PathVariable(name = "nr_poczty") int nr_poczty) {
         dao.delete(nr_poczty);
         return "redirect:/";
+    }
+
+    //
+
+    @RequestMapping("/tabela2")
+    public String viewTestPage(Model model){
+        List<Poczty> listPoczty = dao.list();
+        model.addAttribute("listPoczty", listPoczty);
+        return "tabela2";
     }
 
 }

@@ -11,7 +11,7 @@
     <h1> Index </h1>
 
     <!-- Entry to the new page -->
-    <a href = "/new">Wybierz nową pocztę</a>
+    <a href = "/newPoczty">Wybierz nową pocztę</a>
 
     <!-- Break line -->
     <br/><br/>
@@ -34,14 +34,14 @@
             <td th:text="${poczty.kod_poczty}">Kod_poczty</td>
             <td th:text="${poczty.poczta}">Poczta</td>
             <td>
-                <a th:href="@{'/edit/' + ${poczty.nr_poczty}}">Edytuj</a>
+                <a th:href="@{'/editPoczty/' + ${poczty.nr_poczty}}">Edytuj</a>
                 &nbsp;&nbsp;&nbsp;&nbsp;
-                <a th:href="@{'/delete/' + ${poczty.nr_poczty}}">Usuń</a>
+                <a th:href="@{'/deletePoczty/' + ${poczty.nr_poczty}}">Usuń</a>
             </td>
         </tr>
         </tbody>
-
     </table>
+    <a th:href="@{/tabela2/}">Przejdź do tabeli 2</a>
 </div>
 </body>
 </html>
