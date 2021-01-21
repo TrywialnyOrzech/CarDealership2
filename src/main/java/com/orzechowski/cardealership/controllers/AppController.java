@@ -5,7 +5,11 @@ import com.orzechowski.cardealership.repository.PocztyDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
@@ -20,4 +24,32 @@ public class AppController {
         model.addAttribute("listPoczty", listPoczty);
         return "index";
     }
+
+    @RequestMapping("/new")
+    public String showNewForm(Model model){
+        Poczty poczty = new Poczty();
+        model.addAttribute("poczty", poczty);
+        return "new_form_poczty";
+    }
+
+    @RequestMapping(value="/save", method = RequestMethod.POST)
+    public String save(@ModelAttribute("poczty") Poczty poczty){
+        dao.save(poczty);
+        return "redirect:/";        // back to start location
+    }
+
+    @RequestMapping("/edit/{nr_poczty}")
+    public ModelAndView showEditForm(@PathVariable(name = "nr_poczty") int nr_poczty) {
+        ModelAndView mav = new ModelAndView("edit_form_poczty");
+        Poczty poczty = dao.get(nr_poczty);
+        mav.addObject("poczty", poczty);
+        return mav;
+    }
+
+    @RequestMapping(value = "/update", method = RequestMethod.POST)
+    public String update(@ModelAttribute("poczty") Poczty poczty){
+        dao.update(poczty);
+        return "redirect:/";
+    }
+
 }

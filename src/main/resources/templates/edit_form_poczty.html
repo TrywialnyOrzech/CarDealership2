@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Dodaj poczte</title>
+</head>
+<body>
+<div align="center">
+    <!-- Page header -->
+    <h1>Edit Poczty</h1>
+    <!-- End line -->
+    <br/>
+    <form action="#" th:action = "@{/update}" th:object="${poczty}" method="post">
+        <!-- Table -->
+        <table border="1" cellpadding="10">
+            <!-- Table row -->
+            <tr>
+                <td>Nr_poczty:</td>
+                <td><input type="text" th:field="*{nr_poczty}" readonly="readonly"></td>
+            </tr>
+            <tr>
+                <td>Kod_poczty:</td>
+                <td><input type="text" th:field="*{kod_poczty}" readonly="readonly"></td>
+            </tr>
+            <tr>
+                <td>Poczta:</td>
+                <td><input type="text" th:field="*{poczta}" readonly="readonly"></td>
+            </tr>
+            <!-- Button save -->
+            <tr>
+                <td colspan="2"><button type="submit">Save</button></td>
+            </tr>
+        </table>
+
+    </form>
+</div>
+
+</body>
+</html>

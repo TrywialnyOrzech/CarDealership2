@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Nowa Poczta</title>
+</head>
+<body>
+<div align = "center">
+    <!-- Page header -->
+    <h1> Enter New Sale</h1>
+    <!-- New line -->
+    <br/>
+
+    <form action="#" th:action="@{/save}" th:object="${poczty}", method="post">
+        <table border="1" cellpadding="10">
+
+            <!-- Table row -->
+            <tr>
+                <td>Kod_poczty</td>
+                <td><input type="text" th:field="*{kod_poczty}"> </td>
+            </tr>
+
+            <!-- Table second row -->
+            <tr>
+                <td>Poczta</td>
+                <td><input type="text" th:field="*{poczta}"></td>
+            </tr>
+
+            <!-- Button for new record save -->
+            <tr>
+                <td colspan="2"><button type="submit">Save</button> </td>
+            </tr>
+
+
+        </table>
+
+
+    </form>
+    <!-- Table -->
+
+
+</div>
+</body>
+</html>
