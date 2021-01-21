@@ -34,7 +34,7 @@
             <td th:text="${poczty.kod_poczty}">Kod_poczty</td>
             <td th:text="${poczty.poczta}">Poczta</td>
             <td>
-                <a href="@{'/edit/ + ${poczty.nr_poczty}}">Edytuj</a>
+                <a th:href="@{'/edit/' + ${poczty.nr_poczty}}">Edytuj</a>
             </td>
         </tr>
         </tbody>
