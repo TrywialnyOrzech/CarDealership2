@@ -36,4 +36,28 @@ class AdresyDAOTest {
         Adresy adresy = new Adresy("Warszawa", "Kwiatkowa", "23", 51);
         dao.save(adresy);
     }
+
+    @Test
+    void get() {
+        int id = 2;
+        Adresy adresy = dao.get(id);
+        assertNotNull(adresy);
+    }
+
+    @Test
+    public void update() {
+        Adresy adresy = new Adresy();
+        adresy.setNr_adresu(2);
+        adresy.setMiasto("Bydgoszcz");
+        adresy.setUlica("Lesna");
+        adresy.setNr_lokalu("123");
+        adresy.setNr_poczty(63);
+        dao.update(adresy);
+    }
+
+    @Test
+    void delete() {
+        int nr_adresu = 6;
+        dao.delete(nr_adresu);
+    }
 }
