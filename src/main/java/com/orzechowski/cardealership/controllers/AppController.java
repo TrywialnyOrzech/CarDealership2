@@ -106,5 +106,11 @@ public class AppController {
         return "redirect:/viewAdresy";
     }
 
+    @RequestMapping(value = "/deleteAdresy/{nr_adresu}")
+    public String deleteAdresy(@PathVariable(name = "nr_adresu") int nr_adresu) {
+        adresyDAO.delete(nr_adresu);
+        return "redirect:/viewAdresy";
+    }
+
 
 }
