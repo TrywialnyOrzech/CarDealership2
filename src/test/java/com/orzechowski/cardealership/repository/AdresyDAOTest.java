@@ -47,11 +47,11 @@ class AdresyDAOTest {
     @Test
     public void update() {
         Adresy adresy = new Adresy();
-        adresy.setNr_adresu(2);
-        adresy.setMiasto("Bydgoszcz");
-        adresy.setUlica("Lesna");
-        adresy.setNr_lokalu("123");
-        adresy.setNr_poczty(63);
+        adresy.setNr_adresu(7);
+        adresy.setMiasto("Testowo");
+        adresy.setUlica("Testowa");
+        adresy.setNr_lokalu("5");
+        adresy.setNr_poczty(51);
         dao.update(adresy);
     }
 

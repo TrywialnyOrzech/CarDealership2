@@ -34,9 +34,9 @@
             <td th:text="${adresy.nr_lokalu}">Nr_lokalu</td>
             <td th:text="${adresy.nr_poczty}">Nr_poczty</td>
             <td>
-                <a th:href="@{'/editPoczty/' + ${adresy.nr_adresu}}">Edytuj</a>
+                <a th:href="@{'/editAdresy/' + ${adresy.nr_adresu}}">Edytuj</a>
                 &nbsp;&nbsp;&nbsp;&nbsp;
-                <a th:href="@{'/deletePoczty/' + ${adresy.nr_adresu}}">Usuń</a>
+                <a th:href="@{'/deleteAdresy/' + ${adresy.nr_adresu}}">Usuń</a>
             </td>
         </tr>
         </tbody>

@@ -52,7 +52,7 @@ public class AppController {
     }
 
     @RequestMapping("/editPoczty/{nr_poczty}")
-    public ModelAndView showEditForm(@PathVariable(name = "nr_poczty") int nr_poczty) {
+    public ModelAndView showPocztyEditForm(@PathVariable(name = "nr_poczty") int nr_poczty) {
         ModelAndView mav = new ModelAndView("edit_form_poczty");
         Poczty poczty = pocztyDAO.get(nr_poczty);
         mav.addObject("poczty", poczty);
@@ -60,13 +60,13 @@ public class AppController {
     }
 
     @RequestMapping(value = "/updatePoczty", method = RequestMethod.POST)
-    public String update(@ModelAttribute("poczty") Poczty poczty){
+    public String updatePoczty(@ModelAttribute("poczty") Poczty poczty){
         pocztyDAO.update(poczty);
         return "redirect:/viewPoczty";
     }
 
     @RequestMapping(value = "/deletePoczty/{nr_poczty}")
-    public String delete(@PathVariable(name = "nr_poczty") int nr_poczty) {
+    public String deletePoczty(@PathVariable(name = "nr_poczty") int nr_poczty) {
         pocztyDAO.delete(nr_poczty);
         return "redirect:/viewPoczty";
     }
@@ -92,6 +92,19 @@ public class AppController {
         return "redirect:/viewAdresy";
     }
 
+    @RequestMapping("/editAdresy/{nr_adresu}")
+    public ModelAndView showAdresyEditForm(@PathVariable(name = "nr_adresu") int nr_adresu) {
+        ModelAndView mav = new ModelAndView("edit_form_adresy");
+        Adresy adresy = adresyDAO.get(nr_adresu);
+        mav.addObject("adresy", adresy);
+        return mav;
+    }
+
+    @RequestMapping(value = "/updateAdresy", method = RequestMethod.POST)
+    public String updateAdresy(@ModelAttribute("adresy") Adresy adresy){
+        adresyDAO.update(adresy);
+        return "redirect:/viewAdresy";
+    }
 
 
 }
