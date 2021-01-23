@@ -5,6 +5,7 @@ import com.orzechowski.cardealership.models.Poczty;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.stereotype.Repository;
 
@@ -29,7 +30,17 @@ public class AdresyDAO {
 
     // Insert row
     public void save(Adresy adresy) {
-        /*SimpleJdbcInsert insertAdres = new SimpleJdbcInsert(jdbcTemplate);
-        insertAdres.withTableName("Adresy").usingColumns("")*/
+            SimpleJdbcInsert insertAdres = new SimpleJdbcInsert(jdbcTemplate);
+            insertAdres.withTableName("Adresy").usingColumns("Miasto", "Ulica", "Nr_lokalu", "Nr_poczty");
+            BeanPropertySqlParameterSource param = new BeanPropertySqlParameterSource(adresy);
+            insertAdres.execute(param);
+    }
+
+    //Read row
+    public Adresy get(int nr_adresu) {
+        Object[] args = {nr_adresu};
+        String sql = "SELECT * FROM ADRESY WHERE Nr_adresu = " + args[0];
+        Adresy adresy = jdbcTemplate.queryForObject(sql, BeanPropertyRowMapper.newInstance(Adresy.class));
+        return adresy;
     }
 }

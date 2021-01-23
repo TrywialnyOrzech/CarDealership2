@@ -30,4 +30,10 @@ class AdresyDAOTest {
         List<Adresy> listAdresy = dao.list();
         assertTrue(listAdresy.isEmpty());
     }
+
+    @Test
+    void save() {
+        Adresy adresy = new Adresy("Warszawa", "Kwiatkowa", "23", 51);
+        dao.save(adresy);
+    }
 }

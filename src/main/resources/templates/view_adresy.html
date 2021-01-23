@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Adresy</title>
+</head>
+<body>
+<div align="center">
+    <!-- Page header -->
+    <h1> Wykaz adresów </h1>
+    <!-- Entry to the new page -->
+    <a href = "/newAdresy">Dodaj nowy adres</a>
+    <!-- Break line -->
+    <br/><br/>
+    <!-- Table -->
+    <table border="1" cellpadding="10">
+        <!-- Table header -->
+        <thread>
+            <tr>
+                <th>Numer adresu</th>
+                <th>Miasto</th>
+                <th>Ulica</th>
+                <th>Numer lokalu</th>
+                <th>Numer poczty</th>
+            </tr>
+        </thread>
+        <!-- Table body -->
+        <tbody>
+        <tr th:each="adresy: ${listAdresy}">
+            <td th:text="${adresy.nr_adresu}">Nr_adresu</td>
+            <td th:text="${adresy.miasto}">Miasto</td>
+            <td th:text="${adresy.ulica}">Ulica</td>
+            <td th:text="${adresy.nr_lokalu}">Nr_lokalu</td>
+            <td th:text="${adresy.nr_poczty}">Nr_poczty</td>
+            <td>
+                <a th:href="@{'/editPoczty/' + ${adresy.nr_adresu}}">Edytuj</a>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <a th:href="@{'/deletePoczty/' + ${adresy.nr_adresu}}">Usuń</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>
