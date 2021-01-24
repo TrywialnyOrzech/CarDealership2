@@ -196,7 +196,11 @@ public class AppController {
         return "redirect:/viewSalony";
     }
 
-    //delete
+    @RequestMapping(value = "/deleteSalony/{nr_salonu}")
+    public String deleteSalony(@PathVariable(name = "nr_salonu") int nr_salonu) {
+        salonyDAO.delete(nr_salonu);
+        return "redirect:/viewSalony";
+    }
 
 
 
