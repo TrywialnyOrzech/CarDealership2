@@ -137,6 +137,22 @@ public class AppController {
         return "redirect:/viewBiura";        // back to start location
     }
 
+    @RequestMapping("/editBiura/{nr_biura}")
+    public ModelAndView showBiuraEditForm(@PathVariable(name = "nr_biura") int nr_biura) {
+        ModelAndView mav = new ModelAndView("edit_form_biura");
+        Biura biura = biuraDAO.get(nr_biura);
+        mav.addObject("biura", biura);
+        return mav;
+    }
+
+    @RequestMapping(value = "/updateBiura", method = RequestMethod.POST)
+    public String updateBiura(@ModelAttribute("biura") Biura biura) {
+        biuraDAO.update(biura);
+        return "redirect:/viewBiura";
+    }
+
     
+
+
 
 }

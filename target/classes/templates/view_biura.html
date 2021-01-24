@@ -26,7 +26,7 @@
         </thread>
         <!-- Table body -->
         <tbody>
-        <tr th:each="biura: ${listBiura}">
+        <tr th:each="biura: ${listBiura}">  <!-- name for object representing db entity, for ex. biura -->
             <td th:text="${biura.nr_biura}">Nr_biura</td>
             <td th:text="${biura.nazwa}">Nazwa</td>
             <td th:text="${biura.data_zalozenia}">Data założenia</td>
