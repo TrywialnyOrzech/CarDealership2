@@ -169,9 +169,18 @@ public class AppController {
         return "view_salony";
     }
 
-    //new salony
+    @RequestMapping("/newSalony")
+    public String showNewSalonyForm(Model model){
+        Salony salony = new Salony();
+        model.addAttribute("salony", salony);
+        return "new_form_salony";
+    }
 
-    //save salony
+    @RequestMapping(value="/saveSalony", method = RequestMethod.POST)
+    public String saveNewSalony(@ModelAttribute("salony") Salony salony){
+        salonyDAO.save(salony);
+        return "redirect:/viewSalony";
+    }
 
     //edit
 

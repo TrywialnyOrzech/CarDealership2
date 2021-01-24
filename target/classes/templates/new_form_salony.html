@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Dodaj nowy salon</title>
+</head>
+<body>
+<div align="center">
+    <!-- Page header -->
+    <h1>Dodaj nowy salon</h1>
+    <!-- New line -->
+    <br/>
+    <form action="#" th:action="@{/saveSalony}" th:object="${salony}", method="post">
+        <table border="1" cellpadding="10">
+            <!-- Table row -->
+            <tr>
+                <td>Nazwa</td>
+                <td><input type="text" th:field="*{nazwa}"> </td>
+            </tr>
+            <!-- Table second row -->
+            <tr>
+                <td>Status</td>
+                <td><input type="text" th:field="*{status}"></td>
+            </tr>
+            <!-- Table third row -->
+            <tr>
+                <td>Numer biura</td>
+                <td><input type="text" th:field="*{nr_biura}"></td>
+            </tr>
+            <!-- Button for new record save -->
+            <tr>
+                <td colspan="2"><button type="submit">Zapisz</button> </td>
+            </tr>
+        </table>
+    </form>
+</div>
+
+</body>
+</html>
