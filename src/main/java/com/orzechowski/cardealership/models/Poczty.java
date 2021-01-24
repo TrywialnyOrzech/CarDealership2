@@ -3,7 +3,7 @@ package com.orzechowski.cardealership.models;
 public class Poczty {
     private int nr_poczty;
     private String kod_poczty;
-    private String Poczta;
+    private String poczta;
 
     public Poczty(){
 
@@ -11,7 +11,7 @@ public class Poczty {
 
     public Poczty(String kod_poczty, String poczta) {
         this.kod_poczty = kod_poczty;
-        Poczta = poczta;
+        this.poczta = poczta;
     }
 
     public int getNr_poczty() {
@@ -31,10 +31,10 @@ public class Poczty {
     }
 
     public String getPoczta() {
-        return Poczta;
+        return poczta;
     }
 
     public void setPoczta(String poczta) {
-        Poczta = poczta;
+        this.poczta = poczta;
     }
 }

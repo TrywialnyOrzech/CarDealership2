@@ -1,8 +1,10 @@
 package com.orzechowski.cardealership.controllers;
 
 import com.orzechowski.cardealership.models.Adresy;
+import com.orzechowski.cardealership.models.Biura;
 import com.orzechowski.cardealership.models.Poczty;
 import com.orzechowski.cardealership.repository.AdresyDAO;
+import com.orzechowski.cardealership.repository.BiuraDAO;
 import com.orzechowski.cardealership.repository.PocztyDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,6 +23,8 @@ public class AppController {
     private PocztyDAO pocztyDAO;
     @Autowired
     private AdresyDAO adresyDAO;
+    @Autowired
+    private BiuraDAO biuraDAO;
 
     @RequestMapping("/")
     public String viewHomePage(Model model){
@@ -111,6 +115,15 @@ public class AppController {
         adresyDAO.delete(nr_adresu);
         return "redirect:/viewAdresy";
     }
+
+    //Biura mapping methods
+    /*@RequestMapping("/viewBiura")
+    public String viewBiura(Model model){
+        List<Biura> listBiura = biuraDAO.list();
+        List<Poczty> listPoczty = pocztyDAO.list();
+        model.addAttribute("listPoczty", listPoczty);
+        return "view_poczty";
+    }*/
 
 
 }
