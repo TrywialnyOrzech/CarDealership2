@@ -3,14 +3,14 @@ package com.orzechowski.cardealership.models;
 public class Salony {
     private int nr_salonu;
     private String nazwa;
-    private char status;
+    private String status;
     private int nr_biura;
 
     public Salony() {
 
     }
 
-    public Salony(String nazwa, char status, int nr_biura) {
+    public Salony(String nazwa, String status, int nr_biura) {
         this.nazwa = nazwa;
         this.status = status;
         this.nr_biura = nr_biura;
@@ -32,11 +32,11 @@ public class Salony {
         this.nazwa = nazwa;
     }
 
-    public char getStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(char status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 
