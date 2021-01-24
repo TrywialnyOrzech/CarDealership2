@@ -151,7 +151,12 @@ public class AppController {
         return "redirect:/viewBiura";
     }
 
-    
+    @RequestMapping(value = "/deleteBiura/{nr_biura}")
+    public String deleteBiura(@PathVariable(name = "nr_biura") int nr_biura) {
+        biuraDAO.delete(nr_biura);
+        return "redirect:/viewBiura";
+    }
+
 
 
 
