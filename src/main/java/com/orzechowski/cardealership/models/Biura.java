@@ -12,9 +12,9 @@ public class Biura {
 
     }
 
-    public Biura(String nazwa, Date dataZalozenia, int nr_adresu) {
+    public Biura(String nazwa, Date data_zalozenia, int nr_adresu) {
         this.nazwa = nazwa;
-        this.data_zalozenia = dataZalozenia;
+        this.data_zalozenia = data_zalozenia;
         this.nr_adresu = nr_adresu;
     }
 
@@ -34,12 +34,12 @@ public class Biura {
         this.nazwa = nazwa;
     }
 
-    public Date getDataZalozenia() {
+    public Date getData_zalozenia() {
         return data_zalozenia;
     }
 
-    public void setDataZalozenia(Date dataZalozenia) {
-        this.data_zalozenia = dataZalozenia;
+    public void setData_zalozenia(Date data_zalozenia) {
+        this.data_zalozenia = data_zalozenia;
     }
 
     public int getNr_adresu() {

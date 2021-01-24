@@ -45,7 +45,7 @@ public class AppController {
     @RequestMapping("/newPoczty")
     public String showNewPocztyForm(Model model){
         Poczty poczty = new Poczty();
-        model.addAttribute("poczty", poczty);
+        model.addAttribute("poczty", poczty);       // allows using Poczty class in corresponding html file
         return "new_form_poczty";
     }
 
@@ -117,13 +117,26 @@ public class AppController {
     }
 
     //Biura mapping methods
-    /*@RequestMapping("/viewBiura")
+    @RequestMapping("/viewBiura")
     public String viewBiura(Model model){
         List<Biura> listBiura = biuraDAO.list();
-        List<Poczty> listPoczty = pocztyDAO.list();
-        model.addAttribute("listPoczty", listPoczty);
-        return "view_poczty";
-    }*/
+        model.addAttribute("listBiura", listBiura);
+        return "view_biura";
+    }
 
+    @RequestMapping("/newBiura")
+    public String showNewBiuraForm(Model model){
+        Biura biura = new Biura();
+        model.addAttribute("biura", biura);
+        return "new_form_biura";
+    }
+
+    @RequestMapping(value="/saveBiura", method = RequestMethod.POST)
+    public String saveNewBiura(@ModelAttribute("biura") Biura biura){
+        biuraDAO.save(biura);
+        return "redirect:/viewBiura";        // back to start location
+    }
+
+    
 
 }

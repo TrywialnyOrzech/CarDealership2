@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Biura</title>
+</head>
+<body>
+<div align="center">
+    <!-- Page header -->
+    <h1> Wykaz biur </h1>
+    <!-- Entry to the new page -->
+    <a href = "/newBiura">Dodaj nowe biuro</a>
+    <!-- Break line -->
+    <br/><br/>
+    <!-- Table -->
+    <table border="1" cellpadding="10">
+        <!-- Table header -->
+        <thread>
+            <tr>
+                <th>Numer biura</th>
+                <th>Nazwa biura</th>
+                <th>Data założenia biura</th>
+                <th>Numer adresu</th>
+            </tr>
+        </thread>
+        <!-- Table body -->
+        <tbody>
+        <tr th:each="biura: ${listBiura}">
+            <td th:text="${biura.nr_biura}">Nr_biura</td>
+            <td th:text="${biura.nazwa}">Nazwa</td>
+            <td th:text="${biura.data_zalozenia}">Data założenia</td>
+            <td th:text="${biura.nr_adresu}">Nr_adresu</td>
+            <td>
+                <a th:href="@{'/editBiura/' + ${biura.nr_biura}}">Edytuj</a>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <a th:href="@{'/deleteBiura/' + ${biura.nr_biura}}">Usuń</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>
