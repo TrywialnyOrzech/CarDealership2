@@ -15,7 +15,7 @@ class AdresyDAOTest {
     private AdresyDAO dao;
 
     @BeforeEach
-    void setUp() {
+    public void setUp() {
         DriverManagerDataSource datasource = new DriverManagerDataSource();         // initialize db connection
         datasource.setUrl("jdbc:oracle:thin:@localhost:1521:ORCL1");
         datasource.setUsername("natan");
@@ -26,19 +26,19 @@ class AdresyDAOTest {
     }
 
     @Test
-    void list() {
+    public void list() {
         List<Adresy> listAdresy = dao.list();
         assertTrue(listAdresy.isEmpty());
     }
 
     @Test
-    void save() {
+    public void save() {
         Adresy adresy = new Adresy("Warszawa", "Kwiatkowa", "23", 51);
         dao.save(adresy);
     }
 
     @Test
-    void get() {
+    public void get() {
         int id = 2;
         Adresy adresy = dao.get(id);
         assertNotNull(adresy);
@@ -56,7 +56,7 @@ class AdresyDAOTest {
     }
 
     @Test
-    void delete() {
+    public void delete() {
         int nr_adresu = 6;
         dao.delete(nr_adresu);
     }
