@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edytuj salon</title>
+</head>
+<body>
+<div align="center">
+    <!-- Page header -->
+    <h1>Edytuj salon</h1>
+    <!-- End line -->
+    <br/>
+    <form action="#" th:action = "@{/updateSalony}" th:object="${salony}" method="post">
+        <!-- Table -->
+        <table border="1" cellpadding="10">
+            <!-- Table row -->
+            <tr>
+                <td>Numer salonu:</td>
+                <td><input type="text" th:field="*{nr_salonu}" readonly="readonly"></td>
+            </tr>
+            <tr>
+                <td>Nazwa:</td>
+                <td><input type="text" th:field="*{nazwa}"></td>
+            </tr>
+            <tr>
+                <td>Status:</td>
+                <td><input type="text" th:field="*{status}"></td>
+            </tr>
+            <tr>
+                <td>Numer biura:</td>
+                <td><input type="text" th:field="*{nr_biura}"></td>
+            </tr>
+            <!-- Button save -->
+            <tr>
+                <td colspan="2"><button type="submit">Zapisz</button></td>
+            </tr>
+        </table>
+
+    </form>
+</div>
+
+</body>
+</html>

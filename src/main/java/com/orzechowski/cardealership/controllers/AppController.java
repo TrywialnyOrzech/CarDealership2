@@ -182,9 +182,19 @@ public class AppController {
         return "redirect:/viewSalony";
     }
 
-    //edit
+    @RequestMapping("/editSalony/{nr_salonu}")
+    public ModelAndView showSalonyEditForm(@PathVariable(name = "nr_salonu") int nr_salonu) {
+        ModelAndView mav = new ModelAndView("edit_form_salony");
+        Salony salony = salonyDAO.get(nr_salonu);
+        mav.addObject("salony", salony);
+        return mav;
+    }
 
-    //update
+    @RequestMapping(value = "/updateSalony", method = RequestMethod.POST)
+    public String updateSalony(@ModelAttribute("salony") Salony salony) {
+        salonyDAO.update(salony);
+        return "redirect:/viewSalony";
+    }
 
     //delete
 
