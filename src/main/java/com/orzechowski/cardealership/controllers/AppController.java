@@ -3,9 +3,11 @@ package com.orzechowski.cardealership.controllers;
 import com.orzechowski.cardealership.models.Adresy;
 import com.orzechowski.cardealership.models.Biura;
 import com.orzechowski.cardealership.models.Poczty;
+import com.orzechowski.cardealership.models.Salony;
 import com.orzechowski.cardealership.repository.AdresyDAO;
 import com.orzechowski.cardealership.repository.BiuraDAO;
 import com.orzechowski.cardealership.repository.PocztyDAO;
+import com.orzechowski.cardealership.repository.SalonyDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,6 +27,8 @@ public class AppController {
     private AdresyDAO adresyDAO;
     @Autowired
     private BiuraDAO biuraDAO;
+    @Autowired
+    private SalonyDAO salonyDAO;
 
     @RequestMapping("/")
     public String viewHomePage(Model model){
@@ -156,6 +160,24 @@ public class AppController {
         biuraDAO.delete(nr_biura);
         return "redirect:/viewBiura";
     }
+
+    //Salony mapping methods
+    @RequestMapping("/viewSalony")
+    public String viewSalony(Model model){
+        List<Salony> listSalony = salonyDAO.list();
+        model.addAttribute("listSalony", listSalony);
+        return "view_salony";
+    }
+
+    //new salony
+
+    //save salony
+
+    //edit
+
+    //update
+
+    //delete
 
 
 

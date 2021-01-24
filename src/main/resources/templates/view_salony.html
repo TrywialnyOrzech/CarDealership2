@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Salony</title>
+</head>
+<body>
+<div align="center">
+    <!-- Page header -->
+    <h1> Wykaz salonów </h1>
+    <!-- Entry to the new page -->
+    <a href = "/newSalony">Dodaj nowy salon</a>
+    <!-- Break line -->
+    <br/><br/>
+    <!-- Table -->
+    <table border="1" cellpadding="10">
+        <!-- Table header -->
+        <thread>
+            <tr>
+                <th>Numer salonu</th>
+                <th>Nazwa salonu</th>
+                <th>Status salonu</th>
+                <th>Numer biura</th>
+            </tr>
+        </thread>
+        <!-- Table body -->
+        <tbody>
+        <tr th:each="salony: ${listSalony}">  <!-- name for object representing db entity, for ex. biura -->
+            <td th:text="${salony.getNr_salonu()}">Nr_salonu</td>
+            <td th:text="${salony.nazwa}">Nazwa</td>
+            <td th:text="${salony.status}">Status</td>
+            <td th:text="${salony.nr_biura}">Nr_biura</td>
+            <td>
+                <a th:href="@{'/editSalony/' + ${salony.nr_salonu}}">Edytuj</a>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <a th:href="@{'/deleteSalony/' + ${salony.nr_salonu}}">Usuń</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>
