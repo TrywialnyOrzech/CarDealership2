@@ -5,7 +5,7 @@ import java.sql.Date;
 public class Biura {
     private int nr_biura;
     private String nazwa;
-    private Date dataZalozenia;
+    private Date data_zalozenia;
     private int nr_adresu;
 
     public Biura() {
@@ -14,7 +14,7 @@ public class Biura {
 
     public Biura(String nazwa, Date dataZalozenia, int nr_adresu) {
         this.nazwa = nazwa;
-        this.dataZalozenia = dataZalozenia;
+        this.data_zalozenia = dataZalozenia;
         this.nr_adresu = nr_adresu;
     }
 
@@ -35,11 +35,11 @@ public class Biura {
     }
 
     public Date getDataZalozenia() {
-        return dataZalozenia;
+        return data_zalozenia;
     }
 
     public void setDataZalozenia(Date dataZalozenia) {
-        this.dataZalozenia = dataZalozenia;
+        this.data_zalozenia = dataZalozenia;
     }
 
     public int getNr_adresu() {

@@ -1,7 +1,6 @@
 package com.orzechowski.cardealership.repository;
 
 import com.orzechowski.cardealership.models.Adresy;
-import com.orzechowski.cardealership.models.Poczty;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
