@@ -1,21 +1,146 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Strona główna</title>
+    <title>Login</title>
+    <style>
+        @import url(http://fonts.googleapis.com/css?family=Exo:100,200,400);
+        @import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:700,400,300);
+        .body{
+            position: absolute;
+            overflow-y: scroll;
+            top: -20px;
+            right: -40px;
+            bottom: -40px;
+            width: 100%;
+            height: 100%;
+            background-image: url(https://www.autocar.co.uk/sites/autocar.co.uk/files/styles/body-image/public/bristol_rear_2020_final.jpg?itok=oBBrHD7Y);
+            background-size: auto;
+            -webkit-filter: blur(0px);
+        }
+        body{
+            width: 100%;
+            height: 100%;
+        }
+
+        .head{
+            position: absolute;
+            top: calc(35%);
+            left: calc(50% - 255px);
+        }
+
+        .header div{
+            float: left;
+            color: #ffffff;
+            font-family: 'Exo', sans-serif;
+            font-size: 40px;
+            font-weight: 200;
+            position: absolute;
+            top: calc(50% - 35px);
+            left: calc(50% - 580px);
+        }
+        .header div span{
+            color: #F29E20 !important;
+        }
+
+        .login{
+            position: absolute;
+            top: calc(50% - 75px);
+            left: calc(50% - 50px);
+            height: 150px;
+            width: 350px;
+            padding: 10px;
+        }
+        .login input[type=text]{
+            width: 250px;
+            height: 30px;
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            border-radius: 2px;
+            color: #ffffff;
+            font-family: 'Exo', sans-serif;
+            font-size: 16px;
+            font-weight: 400;
+            padding: 4px;
+        }
+        .login input[type=password]{
+            width: 250px;
+            height: 30px;
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            border-radius: 2px;
+            color: #ffffff;
+            font-family: 'Exo', sans-serif;
+            font-size: 16px;
+            font-weight: 400;
+            padding: 4px;
+        }
+        .login input[type=button]{
+            width: 260px;
+            height: 35px;
+            background: #ffffff;
+            border: 1px solid #ffffff;
+            border-radius: 2px;
+            color: #a18d6c;
+            font-family: 'Exo', sans-serif;
+            font-size: 16px;
+            font-weight: 400;
+            padding: 6px;
+            margin-top: 10px;
+        }
+        .login input [type=button]:hover{
+            opacity: 0.8;
+        }
+        .login input [type=button]:active{
+            opacity:0.6;
+        }
+        .login input [type=text]:focus{
+            outline: none;
+            border: 1px solid rgba(255, 255, 255, 0.9);
+        }
+        .login input [type=password]:focus{
+            outline: none;
+            border: 1px solid rgba(255, 255, 255, 0.9);
+        }
+        .login input [type=button]:focus{
+            outline: none;
+        }
+        ::-webkit-input-placeholder{
+            color: rgba(255, 255, 255, 0.6);
+        }
+        :-moz-placeholder{
+            color: rgba(255, 255, 255, 0.6);
+        }
+    </style>
 </head>
-<body>
-<div align="center">
-    <!-- Page header -->
-    <h1>Klient bazy danych: salon samochodowy</h1>
-    <a th:href="@{/viewPoczty/}">Zarządzaj pocztami</a>
-    <br/>
-    <a th:href="@{/viewAdresy/}">Zarządzaj adresami</a>
-    <br/>
-    <a th:href="@{/viewBiura/}">Zarządzaj biurami</a>
-    <br/>
-    <a th:href="@{/viewSalony/}">Zarządzaj salonami</a>
+<body oncontextmenu="return false">
+<div class="head"></div>
+<div class="body"></div>
+<div class="grad"></div>
+<div class="header">
+    <div>Salon<span>Samochodowy</span></div>
 </div>
+<br>
+<form name="login">
+    <div class="login">
+        <input type="text" placeholder="username" name="userid"><br>
+        <input type="password" placeholder="password" name="pswrd"><br>
+        <input type="button" onclick="check(this.form)" value="Login"/>
+    </div>
+</form>
+
+<script language="javascript">
+    function check(form)
+    {
+        if(form.userid.value == "natan" && form.pswrd.value == "toor")
+        {
+            window.open('/nawigator')
+        }
+        else
+        {
+            alert("Odmowa dostępu")
+        }
+    }
+</script>
 </body>
 </html>

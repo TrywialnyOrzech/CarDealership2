@@ -117,30 +117,30 @@
 <div class="head"></div>
 <div class="body"></div>
 <div class="grad"></div>
-<div class="header">
-    <div>Salon<span>Samochodowy</span></div>
-</div>
-<br>
-<form name="login">
-    <div class="login">
-        <input type="text" placeholder="username" name="userid"><br>
-        <input type="password" placeholder="password" name="pswrd"><br>
-        <input type="button" onclick="check(this.form)" value="Login"/>
+    <div class="header">
+        <div>Salon<span>Samochodowy</span></div>
     </div>
-</form>
+    <br>
+    <form name="login">
+        <div class="login">
+            <input type="text" placeholder="username" name="userid"><br>
+            <input type="password" placeholder="password" name="pswrd"><br>
+            <input type="button" onclick="check(this.form)" value="Login"/>
+        </div>
+    </form>
 
-<script language="javascript">
-    function check(form)
-    {
-        if(form.userid.value == "natan" && form.pswrd.value == "toor")
+    <script language="javascript">
+        function check(form)
         {
-            window.open('/nawigator')
+            if(form.userid.value == "natan" && form.pswrd.value == "toor")
+            {
+                window.open('http://google.com')
+            }
+            else
+            {
+                alert("Odmowa dostępu")
+            }
         }
-        else
-        {
-            alert("Odmowa dostępu")
-        }
-    }
-</script>
+    </script>
 </body>
 </html>

@@ -202,6 +202,10 @@ public class AppController {
         return "redirect:/viewSalony";
     }
 
+    @RequestMapping(value = "/nawigator")
+    public String login(){
+        return "view_adresy";
+    }
 
 
 
