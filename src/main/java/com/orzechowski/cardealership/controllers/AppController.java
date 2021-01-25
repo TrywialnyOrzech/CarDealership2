@@ -204,7 +204,7 @@ public class AppController {
 
     @RequestMapping(value = "/nawigator")
     public String login(){
-        return "view_adresy";
+        return "navigator";
     }
 
 
