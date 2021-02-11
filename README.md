@@ -1,6 +1,6 @@
 # CarDealership2
 
-This application is written with Spring Boot and allows user, authenticated via extremely basic and vulnerable login mechanism, to perform CRUD operations on some of the tables. 
+This application is written with Spring Boot and allows user, authenticated via extremely basic and vulnerable login mechanism, to perform CRUD operations on some of the tables. Database is meant to store information about car dealership, for example: employees, cars, contractors, addresses. 
 Credentials are hard coded in .js script. Tables possible to view and modify:
 - Adresy
 - Poczty
