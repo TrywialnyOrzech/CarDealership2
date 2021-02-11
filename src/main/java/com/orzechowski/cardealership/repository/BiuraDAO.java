@@ -14,7 +14,7 @@ import java.util.List;
 @Repository
 public class BiuraDAO {
     @Autowired
-    private JdbcTemplate jdbcTemplate;
+    private final JdbcTemplate jdbcTemplate;
 
     public BiuraDAO(JdbcTemplate jdbcTemplate) {
         super();

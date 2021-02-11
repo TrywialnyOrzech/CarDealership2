@@ -14,7 +14,7 @@ import java.util.List;
 @Repository
 public class AdresyDAO {
     @Autowired
-    private JdbcTemplate jdbcTemplate;
+    private final JdbcTemplate jdbcTemplate;
 
     public AdresyDAO(JdbcTemplate jdbcTemplate) {
         super();
@@ -22,7 +22,7 @@ public class AdresyDAO {
     }
 
     // List with data from table
-    public List<Adresy> list(){
+    public List<Adresy> list() {
         String sql = "SELECT * FROM Adresy";
         List<Adresy> listAdresy = jdbcTemplate.query(sql, BeanPropertyRowMapper.newInstance(Adresy.class));
         return listAdresy;
@@ -30,10 +30,10 @@ public class AdresyDAO {
 
     // Insert row
     public void save(Adresy adresy) {
-            SimpleJdbcInsert insertAdres = new SimpleJdbcInsert(jdbcTemplate);
-            insertAdres.withTableName("Adresy").usingColumns("Miasto", "Ulica", "Nr_lokalu", "Nr_poczty");
-            BeanPropertySqlParameterSource param = new BeanPropertySqlParameterSource(adresy);
-            insertAdres.execute(param);
+        SimpleJdbcInsert insertAdres = new SimpleJdbcInsert(jdbcTemplate);
+        insertAdres.withTableName("Adresy").usingColumns("Miasto", "Ulica", "Nr_lokalu", "Nr_poczty");
+        BeanPropertySqlParameterSource param = new BeanPropertySqlParameterSource(adresy);
+        insertAdres.execute(param);
     }
 
     //Read row

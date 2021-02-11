@@ -14,7 +14,7 @@ import java.util.List;
 @Repository
 public class SalonyDAO {
     @Autowired
-    private JdbcTemplate jdbcTemplate;
+    private final JdbcTemplate jdbcTemplate;
 
     public SalonyDAO(JdbcTemplate jdbcTemplate) {
         super();

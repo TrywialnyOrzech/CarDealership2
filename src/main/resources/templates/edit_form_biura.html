@@ -11,7 +11,7 @@
     <h1>Edytuj biuro</h1>
     <!-- End line -->
     <br/>
-    <form action="#" th:action = "@{/updateBiura}" th:object="${biura}" method="post">
+    <form action="#" th:action="@{/updateBiura}" th:object="${biura}" method="post">
         <!-- Table -->
         <table border="1" cellpadding="10">
             <!-- Table row -->
@@ -33,7 +33,9 @@
             </tr>
             <!-- Button save -->
             <tr>
-                <td colspan="2"><button type="submit">Zapisz</button></td>
+                <td colspan="2">
+                    <button type="submit">Zapisz</button>
+                </td>
             </tr>
         </table>
     </form>

@@ -5,7 +5,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
-import org.springframework.jdbc.core.namedparam.NamedParameterJdbcDaoSupport;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.stereotype.Repository;
@@ -15,7 +14,7 @@ import java.util.List;
 @Repository
 public class PocztyDAO {
     @Autowired
-    private JdbcTemplate jdbcTemplate;
+    private final JdbcTemplate jdbcTemplate;
 
     public PocztyDAO(JdbcTemplate jdbcTemplate) {
         super();
@@ -23,14 +22,14 @@ public class PocztyDAO {
     }
 
     // List with data from table
-    public List<Poczty> list(){
+    public List<Poczty> list() {
         String sql = "SELECT * FROM Poczty";
         List<Poczty> listPoczty = jdbcTemplate.query(sql, BeanPropertyRowMapper.newInstance(Poczty.class));
         return listPoczty;
     }
 
     // Insert row
-    public void save(Poczty poczty){
+    public void save(Poczty poczty) {
         SimpleJdbcInsert insertPoczta = new SimpleJdbcInsert(jdbcTemplate);
         insertPoczta.withTableName("Poczty").usingColumns("Kod_poczty", "Poczta");
         BeanPropertySqlParameterSource param = new BeanPropertySqlParameterSource(poczty);
@@ -38,7 +37,7 @@ public class PocztyDAO {
     }
 
     // Read row
-    public Poczty get(int nr_poczty){
+    public Poczty get(int nr_poczty) {
         Object[] args = {nr_poczty};
         String sql = "SELECT * FROM POCZTY WHERE Nr_poczty = " + args[0];
         Poczty poczty = jdbcTemplate.queryForObject(sql, BeanPropertyRowMapper.newInstance(Poczty.class));
@@ -46,7 +45,7 @@ public class PocztyDAO {
     }
 
     // Update row
-    public void update(Poczty poczty){
+    public void update(Poczty poczty) {
         String sql = "UPDATE POCZTY SET kod_poczty=:kod_poczty, poczta=:poczta WHERE nr_poczty=:nr_poczty";
         BeanPropertySqlParameterSource param = new BeanPropertySqlParameterSource(poczty);
         NamedParameterJdbcTemplate template = new NamedParameterJdbcTemplate(jdbcTemplate);
@@ -54,7 +53,7 @@ public class PocztyDAO {
     }
 
     // Delete row
-    public void delete(int nr_poczty){
+    public void delete(int nr_poczty) {
         String sql = "DELETE FROM POCZTY WHERE Nr_poczty = ?";
         jdbcTemplate.update(sql, nr_poczty);
     }

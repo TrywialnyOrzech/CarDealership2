@@ -5,7 +5,7 @@ public class Poczty {
     private String kod_poczty;
     private String poczta;
 
-    public Poczty(){
+    public Poczty() {
 
     }
 

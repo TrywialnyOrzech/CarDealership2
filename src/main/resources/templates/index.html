@@ -6,7 +6,8 @@
     <style>
         @import url(http://fonts.googleapis.com/css?family=Exo:100,200,400);
         @import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:700,400,300);
-        .body{
+
+        .body {
             position: absolute;
             overflow-y: scroll;
             top: -20px;
@@ -18,18 +19,19 @@
             background-size: auto;
             -webkit-filter: blur(0px);
         }
-        body{
+
+        body {
             width: 100%;
             height: 100%;
         }
 
-        .head{
+        .head {
             position: absolute;
             top: calc(35%);
             left: calc(50% - 255px);
         }
 
-        .header div{
+        .header div {
             float: left;
             color: #ffffff;
             font-family: 'Exo', sans-serif;
@@ -39,11 +41,12 @@
             top: calc(50% - 35px);
             left: calc(50% - 580px);
         }
-        .header div span{
+
+        .header div span {
             color: #F29E20 !important;
         }
 
-        .login{
+        .login {
             position: absolute;
             top: calc(50% - 75px);
             left: calc(50% - 50px);
@@ -51,7 +54,8 @@
             width: 350px;
             padding: 10px;
         }
-        .login input[type=text]{
+
+        .login input[type=text] {
             width: 250px;
             height: 30px;
             background: transparent;
@@ -63,7 +67,8 @@
             font-weight: 400;
             padding: 4px;
         }
-        .login input[type=password]{
+
+        .login input[type=password] {
             width: 250px;
             height: 30px;
             background: transparent;
@@ -75,7 +80,8 @@
             font-weight: 400;
             padding: 4px;
         }
-        .login input[type=button]{
+
+        .login input[type=button] {
             width: 260px;
             height: 35px;
             background: #ffffff;
@@ -88,27 +94,34 @@
             padding: 6px;
             margin-top: 10px;
         }
-        .login input [type=button]:hover{
+
+        .login input [type=button]:hover {
             opacity: 0.8;
         }
-        .login input [type=button]:active{
-            opacity:0.6;
+
+        .login input [type=button]:active {
+            opacity: 0.6;
         }
-        .login input [type=text]:focus{
+
+        .login input [type=text]:focus {
             outline: none;
             border: 1px solid rgba(255, 255, 255, 0.9);
         }
-        .login input [type=password]:focus{
+
+        .login input [type=password]:focus {
             outline: none;
             border: 1px solid rgba(255, 255, 255, 0.9);
         }
-        .login input [type=button]:focus{
+
+        .login input [type=button]:focus {
             outline: none;
         }
-        ::-webkit-input-placeholder{
+
+        ::-webkit-input-placeholder {
             color: rgba(255, 255, 255, 0.6);
         }
-        :-moz-placeholder{
+
+        :-moz-placeholder {
             color: rgba(255, 255, 255, 0.6);
         }
     </style>
@@ -130,14 +143,10 @@
 </form>
 
 <script language="javascript">
-    function check(form)
-    {
-        if(form.userid.value == "natan" && form.pswrd.value == "toor")
-        {
+    function check(form) {
+        if (form.userid.value == "natan" && form.pswrd.value == "toor") {
             window.open('/nawigator')
-        }
-        else
-        {
+        } else {
             alert("Odmowa dostępu")
         }
     }

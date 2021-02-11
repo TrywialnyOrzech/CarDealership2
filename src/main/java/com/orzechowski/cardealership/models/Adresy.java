@@ -7,7 +7,7 @@ public class Adresy {
     private String nr_lokalu;
     private int nr_poczty;
 
-    public Adresy(){
+    public Adresy() {
 
     }
 

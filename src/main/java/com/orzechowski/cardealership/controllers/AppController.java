@@ -31,7 +31,7 @@ public class AppController {
     private SalonyDAO salonyDAO;
 
     @RequestMapping("/")
-    public String viewHomePage(Model model){
+    public String viewHomePage(Model model) {
         List<Poczty> listPoczty = pocztyDAO.list();
         model.addAttribute("listPoczty", listPoczty);
         return "index";
@@ -40,21 +40,21 @@ public class AppController {
     // Poczty mapping methods
 
     @RequestMapping("/viewPoczty")
-    public String viewPoczty(Model model){
+    public String viewPoczty(Model model) {
         List<Poczty> listPoczty = pocztyDAO.list();
         model.addAttribute("listPoczty", listPoczty);
         return "view_poczty";
     }
 
     @RequestMapping("/newPoczty")
-    public String showNewPocztyForm(Model model){
+    public String showNewPocztyForm(Model model) {
         Poczty poczty = new Poczty();
         model.addAttribute("poczty", poczty);       // allows using Poczty class in corresponding html file
         return "new_form_poczty";
     }
 
-    @RequestMapping(value="/savePoczty", method = RequestMethod.POST)
-    public String saveNewPoczty(@ModelAttribute("poczty") Poczty poczty){
+    @RequestMapping(value = "/savePoczty", method = RequestMethod.POST)
+    public String saveNewPoczty(@ModelAttribute("poczty") Poczty poczty) {
         pocztyDAO.save(poczty);
         return "redirect:/viewPoczty";        // back to start location
     }
@@ -68,7 +68,7 @@ public class AppController {
     }
 
     @RequestMapping(value = "/updatePoczty", method = RequestMethod.POST)
-    public String updatePoczty(@ModelAttribute("poczty") Poczty poczty){
+    public String updatePoczty(@ModelAttribute("poczty") Poczty poczty) {
         pocztyDAO.update(poczty);
         return "redirect:/viewPoczty";
     }
@@ -81,21 +81,21 @@ public class AppController {
 
     // Adresy mapping methods
     @RequestMapping("/viewAdresy")
-    public String viewAdresy(Model model){
+    public String viewAdresy(Model model) {
         List<Adresy> listAdresy = adresyDAO.list();
         model.addAttribute("listAdresy", listAdresy);
         return "view_adresy";
     }
 
     @RequestMapping("/newAdresy")
-    public String showNewAdresyForm(Model model){
+    public String showNewAdresyForm(Model model) {
         Adresy adresy = new Adresy();
         model.addAttribute("adresy", adresy);
         return "new_form_adresy";
     }
 
-    @RequestMapping(value="/saveAdresy", method = RequestMethod.POST)
-    public String saveNewAdresy(@ModelAttribute("adresy") Adresy adresy){
+    @RequestMapping(value = "/saveAdresy", method = RequestMethod.POST)
+    public String saveNewAdresy(@ModelAttribute("adresy") Adresy adresy) {
         adresyDAO.save(adresy);
         return "redirect:/viewAdresy";
     }
@@ -109,7 +109,7 @@ public class AppController {
     }
 
     @RequestMapping(value = "/updateAdresy", method = RequestMethod.POST)
-    public String updateAdresy(@ModelAttribute("adresy") Adresy adresy){
+    public String updateAdresy(@ModelAttribute("adresy") Adresy adresy) {
         adresyDAO.update(adresy);
         return "redirect:/viewAdresy";
     }
@@ -122,21 +122,21 @@ public class AppController {
 
     //Biura mapping methods
     @RequestMapping("/viewBiura")
-    public String viewBiura(Model model){
+    public String viewBiura(Model model) {
         List<Biura> listBiura = biuraDAO.list();
         model.addAttribute("listBiura", listBiura);
         return "view_biura";
     }
 
     @RequestMapping("/newBiura")
-    public String showNewBiuraForm(Model model){
+    public String showNewBiuraForm(Model model) {
         Biura biura = new Biura();
         model.addAttribute("biura", biura);
         return "new_form_biura";
     }
 
-    @RequestMapping(value="/saveBiura", method = RequestMethod.POST)
-    public String saveNewBiura(@ModelAttribute("biura") Biura biura){
+    @RequestMapping(value = "/saveBiura", method = RequestMethod.POST)
+    public String saveNewBiura(@ModelAttribute("biura") Biura biura) {
         biuraDAO.save(biura);
         return "redirect:/viewBiura";        // back to start location
     }
@@ -163,21 +163,21 @@ public class AppController {
 
     //Salony mapping methods
     @RequestMapping("/viewSalony")
-    public String viewSalony(Model model){
+    public String viewSalony(Model model) {
         List<Salony> listSalony = salonyDAO.list();
         model.addAttribute("listSalony", listSalony);
         return "view_salony";
     }
 
     @RequestMapping("/newSalony")
-    public String showNewSalonyForm(Model model){
+    public String showNewSalonyForm(Model model) {
         Salony salony = new Salony();
         model.addAttribute("salony", salony);
         return "new_form_salony";
     }
 
-    @RequestMapping(value="/saveSalony", method = RequestMethod.POST)
-    public String saveNewSalony(@ModelAttribute("salony") Salony salony){
+    @RequestMapping(value = "/saveSalony", method = RequestMethod.POST)
+    public String saveNewSalony(@ModelAttribute("salony") Salony salony) {
         salonyDAO.save(salony);
         return "redirect:/viewSalony";
     }
@@ -203,10 +203,9 @@ public class AppController {
     }
 
     @RequestMapping(value = "/nawigator")
-    public String login(){
+    public String login() {
         return "navigator";
     }
-
 
 
 }
